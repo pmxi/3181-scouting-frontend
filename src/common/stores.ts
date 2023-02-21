@@ -74,7 +74,7 @@ export const useWidgetsStore = defineStore("widgets", () => {
     // Turns a value into a string. Arrays are space-delimited to minimize collision with the CSV format.
     const stringify = (value: unknown) => Array.isArray(value) ? value.join(" ") : String(value);
 
-    // Get header and record from the data (`name` is already a string so it does not need stringification)
+    // Get header and record from the data (`name` is already a string, so it does not need stringification)
     // Then add the current timestamp as the last field in the record
     const header = values.map(i => i.name).concat("ScoutedTime");
     const record = values.map(i => stringify(i.value)).concat(new Date().toString());
